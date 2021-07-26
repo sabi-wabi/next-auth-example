@@ -4,6 +4,8 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 export default function Page () {
 
+
+
   return (
     <Layout>
       <h1>NextAuth.js Example</h1>
@@ -24,7 +26,7 @@ export async function getServerSideProps(context) {
     return {
       props: {},
       redirect: {
-        destination: `/auth/signin`,
+        destination: `/auth/signin?callbackUrl=${process.env.NEXTAUTH_URL}`,
         permanent: false,
       },
     };
